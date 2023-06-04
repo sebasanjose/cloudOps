@@ -1,0 +1,2 @@
+// Create role for an EC2 instance from CLI
+aws iam create-role --role-name S3Access --assume-role-policy-document file://trust-policy.json
