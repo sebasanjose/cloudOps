@@ -1,2 +1,6 @@
 // Create role for an EC2 instance from CLI
 aws iam create-role --role-name S3Access --assume-role-policy-document file://trust-policy.json
+
+// Create EC2 instance from CLI
+aws ec2 run-instances --image-id ami-0b898040803850657 --count 1 --instance-type t2.micro --key-name mykey --security-group-ids sg-0a9c9b6c9b6c9b6c9 --subnet-id subnet-0a9c9b6c9b6c9b6c9 --iam-instance-profile Name=S3Access
+
