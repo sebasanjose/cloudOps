@@ -9,3 +9,6 @@ aws ec2 create-image --instance-id i-1234567890abcdef0 --name "My server" --desc
 
 // Create role for an EC2 instance from CLI
 aws iam create-role --role-name S3Access --assume-role-policy-document file://trust-policy.json
+
+// Create EFS from CLI
+aws efs create-file-system --creation-token my-efs --performance-mode generalPurpose --throughput-mode bursting --region us-east-1
