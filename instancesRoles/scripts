@@ -12,3 +12,12 @@ aws iam create-role --role-name S3Access --assume-role-policy-document file://tr
 
 // Create EFS from CLI
 aws efs create-file-system --creation-token my-efs --performance-mode generalPurpose --throughput-mode bursting --region us-east-1
+
+// Create EFS mount target from CLI
+aws efs create-mount-target --file-system-id fs-12345678 --subnet-id subnet-12345678 --security-group sg-12345678 --region us-east-1
+
+// Create ALB from CLI
+aws elbv2 create-load-balancer --name my-load-balancer --subnets subnet-12345678 subnet-87654321 --security-groups sg-12345678 --region us-east-1
+
+// Create ALB target group from CLI
+aws elbv2 create-target-group --name my-targets --protocol HTTP --port 80 --vpc-id vpc-12345678 --region us-east-1
