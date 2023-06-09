@@ -1,0 +1,4 @@
+// cli sample that creates an application load balancer, two ec2 instances, and a target group, and then registers the instances with the target group
+// also shows a message when the instances are ready to receive traffic, message appears in a web browser
+// https://docs.aws.amazon.com/elasticloadbalancing/latest/application/tutorial-application-load-balancer-cli.html
+
