@@ -21,3 +21,11 @@ aws elbv2 create-load-balancer --name my-load-balancer --subnets subnet-12345678
 
 // Create ALB target group from CLI
 aws elbv2 create-target-group --name my-targets --protocol HTTP --port 80 --vpc-id vpc-12345678 --region us-east-1
+
+// launch configuration
+aws autoscaling create-launch-configuration --launch-configuration-name my-launch-config --image-id ami-12345678 --key-name my-key-pair --security-groups sg-12345678 --instance-type t2.micro --iam-instance-profile my-iam-role
+
+// Create ASG from CLI
+aws autoscaling create-auto-scaling-group --auto-scaling-group-name my-auto-scaling-group --launch-configuration-name my-launch-config --min-size 2 --max-size 3 --desired-capacity 2 --target-group-arns arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/my-targets/1234567890123456 --health-check-type ELB --health-check-grace-period 120 --vpc-zone-identifier "subnet-12345678,subnet-87654321" --tags ResourceId=my-auto-scaling-group,ResourceType=auto-scaling-group,Key=Name,Value=my-auto-scaling-group,PropagateAtLaunch=true --region us-east-1
+
+
